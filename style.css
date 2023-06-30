@@ -1,0 +1,337 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+
+.dos{
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+}
+.uno{
+    width: 10%;
+    height: 35%;
+    border-radius: 20%;
+    
+    
+    }
+.tres{
+    width: 40%;
+    height: 40%;
+    border-radius: 4%;
+}
+img{
+width: 45%;
+height: 45%;
+border-radius: 20%;
+
+
+}
+body {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #1f1d1d;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 63px;
+    background: #171717;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    margin-right: 10px;
+}
+
+.logo {
+    margin-left: 30px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.navbar a {
+    display: block;
+    padding: 20px 20px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    background: #3f3f3f;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header {
+    height: 70vh !important;
+    background: url(images/raspi.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.header2 {
+    height: 40vh !important;
+    background: url(images/raspi.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.title {
+    margin-bottom: 40px;
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+p {
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #fff;
+    padding: 0 100px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 40px;
+    border: 2px solid #9c27b0;
+    color: #fff;
+    text-decoration: none;
+    background: #9c27b0;
+}
+
+.btn:hover {
+    background: none;
+    
+}
+
+.btn-home {
+    display: flex;
+}
+
+.btn-home a {
+    margin: 0 10px;
+}
+
+
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sau {
+    padding: 30px;
+    background: #1f1d1d
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+
+.box-container .box {
+    height: 11rem;
+    width: 17rem;
+    background: #101010;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem 5rem rgba(0, 0 , 0, .5);
+    margin: 2rem;   
+}
+
+.box-container .box i {
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #9c27b0;
+    font-size: 2rem;
+    margin: 1rem 0;
+
+}
+
+.box-container .box h3 {
+    font-size: 20px;
+    color: #9c27b0;
+
+}
+
+.box-container .box p {
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+.about {
+    background: #171717;
+}
+
+.price {
+    background: url(images/raspi.jpg) no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+
+.contact {
+    padding-top: 20px;
+    background: #171717;
+    padding-bottom: 0;
+}
+
+
+@media (max-width: 768px) {
+
+    .title {
+        margin-bottom: 0;
+        font-size: 40px;
+    }
+
+    .sau {
+        height: 100vh;
+    }
+
+    .navbar {
+        display: none;
+    }
+   
+    
+}
+
+
+
+
+
+
+
+
+
+.contenedor{
+    
+        border: 4px;
+        border-radius: 5px;
+        margin-top: 5px;
+        width: 80%; /* ancho */
+        margin-left: 10%; /*espacio de los lados */
+        text-align: center;
+        font-family: sans-serif;
+        color: white;
+        
+
+    }
+
+
+    .contenedor2{
+    background-color: #cad026;
+        border: 4px;
+        border-radius: 5px;
+        margin-top: 5px;
+        width: 33%; /* ancho */
+        color: rgb(20, 19, 18);
+        text-align: left;
+        font-family: sans-serif;
+        
+
+    }
+
+
+
+
+
+    .imagen-grande {
+        max-width: 100%;
+        max-height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .imagen-grande img {
+        max-width: 90%;
+        max-height: 90%;
+        display: block;
+        margin: auto;
+        padding: 20px;
+    }
+
+
+
+
+    .image-row {
+        white-space: nowrap; /* Evita el salto de línea */
+        overflow-x: auto; /* Permite el desplazamiento horizontal */
+      }
+  
+      .image-row img {
+        display: inline-block;
+        width: 210px; /* Ajusta el ancho de las imágenes según tus necesidades */
+        height: 175px; /* Ajusta la altura de las imágenes según tus necesidades */
+        margin-right: 10px; /* Espacio entre imágenes */
+      }
+
+
+      .boton-izquierdo {
+        position: fixed;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+      background-color: #ffffff; /* Cambia el color de fondo a rojo */
+      padding: 10px 20px; /* Ajusta el padding para hacerlo más grande */
+      font-size: 16px; /* Ajusta el tamaño de la fuente */
+     
+      border: 3px solid purple; /* Establece un borde de 2px de grosor y color morado */
+      }
+  
+      .boton-derecho {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+
+        border: 3px solid purple; 
+        
+      background-color: #ffffff; /* Cambia el color de fondo a verde */
+      padding: 10px 20px; /* Ajusta el padding para hacerlo más grande */
+      font-size: 16px; /* Ajusta el tamaño de la fuente */
+      }
