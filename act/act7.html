@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+<a href="act6.html" class="boton-izquierdo">
+    <img src="../images/act5.jpg" class="dos">
+   </a>
+
+  <a href="act8.html" class="boton-derecho">
+    <img src="../images/act8.jpg" class="dos">
+   </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Motor l298n</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/act7.jpg" alt="Imagen 1">
+    <img src="../fotos/motor.jpg" alt="Imagen 1">
+    <img src="../fotos/motor2.jpg" alt="Imagen 2">
+    <img src="../fotos/motor3.jpg" alt="Imagen 3">
+    <img src="../fotos/motor4.jpg" alt="Imagen 4">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+el codigo funciona para asignarle una direccion, y potencia al motor, en este caso si se requiere de una fuente de energia externa, como una bateria<br><br></div>
+<center>
+<div class="contenedor2">
+
+
+    
+    import RPi.GPIO as GPIO<br>
+    from time import sleep<br><br>
+
+    GPIO.setwarnings(False)<br>
+    in1 = 24<br>
+    in2 = 23<br>
+    en = 25<br>
+    temp1 = 1<br><br>
+
+    GPIO.setmode(GPIO.BCM)<br>
+    GPIO.setup(in1, GPIO.OUT)<br>
+    GPIO.setup(in2, GPIO.OUT)<br>
+    GPIO.setup(en, GPIO.OUT)<br>
+    GPIO.output(in1, GPIO.LOW)<br>
+    GPIO.output(in2, GPIO.LOW)<br>
+    p = GPIO.PWM(en, 1000)<br><br>
+
+    p.start(25)<br>
+    print("\n")<br>
+    print("The default speed & direction of motor is LOW & Forward.....")<br>
+    print("r-run s-stop f-forward b-backward l-low m-medium h-high e-exit")<br>
+    print("\n")<br><br>
+
+    while True:<br>
+        x = input()<br><br>
+
+        if x == 'r':<br>
+            print("run")<br>
+            if temp1 == 1:<br>
+                GPIO.output(in1, GPIO.HIGH)<br>
+                GPIO.output(in2, GPIO.LOW)<br>
+                print("forward")<br>
+                x = 'z'<br>
+            else:<br>
+                GPIO.output(in1, GPIO.LOW)<br>
+                GPIO.output(in2, GPIO.HIGH)<br>
+                print("backward")<br>
+                x = 'z'<br>
+        elif x == 's':<br>
+            print("stop")<br>
+            GPIO.output(in1, GPIO.LOW)<br>
+            GPIO.output(in2, GPIO.LOW)<br>
+            x = 'z'<br>
+        elif x == 'f':<br>
+            print("forward")<br>
+            GPIO.output(in1, GPIO.HIGH)<br>
+            GPIO.output(in2, GPIO.LOW)<br>
+            temp1 = 1<br>
+            x = 'z'<br>
+        elif x == 'b':<br>
+            print("backward")<br>
+            GPIO.output(in1, GPIO.LOW)<br>
+            GPIO.output(in2, GPIO.HIGH)<br>
+            temp1 = 0<br>
+            x = 'z'<br>
+        elif x == 'l':<br>
+            print("low")<br>
+            p.ChangeDutyCycle(25)<br>
+            x = 'z'<br>
+        elif x == 'm':<br>
+            print("medium")<br>
+            p.ChangeDutyCycle(50)<br>
+            x = 'z'<br>
+        elif x == 'h':<br>
+            print("high")<br>
+            p.ChangeDutyCycle(75)<br>
+            x = 'z'<br>
+        elif x == 'e':<br>
+            GPIO.cleanup()<br>
+            print("GPIO Clean up")<br>
+            break<br>
+        else:<br>
+            print("<<< wrong data >>>")<br>
+            print("please enter the defined data to continue.....")<br>
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/motor6.jpg"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

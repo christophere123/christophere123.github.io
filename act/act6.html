@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Matriz led</h1>
+
+
+    <br>
+</header>
+<br><br>
+
+<a href="act5.html" class="boton-izquierdo">
+    <img src="../images/act6.jpg" class="dos">
+   </a>
+
+  <a href="act7.html" class="boton-derecho">
+    <img src="../images/act7.jpg" class="dos">
+   </a>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    <img src="../images/act5.jpg" alt="Imagen 1">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+en la matriz led sera posible crear secuencias de acuerdo a lo que necesites, todo con la variedad de leds disponibles <br><br></div>
+<center>
+<div class="contenedor2">
+
+    import RPi.GPIO as GPIO<br>
+import time<br><br>
+# Definir los pines GPIO<br>
+DATA_PIN = 18<br><br>
+# Configurar el modo de la GPIO<br>
+GPIO.setmode(GPIO.BCM)<br><br>
+# Configurar el pin de datos como salida<br>
+GPIO.setup(DATA_PIN, GPIO.OUT)<br><br>
+# Función para enviar un byte de datos a la matriz LED<br>
+def enviar_byte(byte):<br>
+    for i in range(8):<br>
+        bit = (byte >> i) & 1<br>
+        GPIO.output(DATA_PIN, bit)<br>
+        time.sleep(0.001)  # Esperar un breve periodo de tiempo<br><br>
+# Encender todos los LEDs de la matriz<br>
+def encender_matriz():<br>
+    for fila in range(8):<br>
+        byte = 0xFF  # Todos los bits en 1 para encender todos los LEDs<br>
+        enviar_byte(byte)<br><br>
+# Apagar todos los LEDs de la matriz<br>
+def apagar_matriz():<br>
+    for fila in range(8):<br>
+        byte = 0x00  # Todos los bits en 0 para apagar todos los LEDs<br>
+        enviar_byte(byte)<br><br>
+# Ejemplo de uso: Encender y apagar la matriz<br>
+encender_matriz()<br>
+time.sleep(2)  # Mantener la matriz encendida durante 2 segundos<br>
+apagar_matriz()<br><br>
+# Limpiar la configuración de la GPIO<br>
+GPIO.cleanup()
+
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/matrizled.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

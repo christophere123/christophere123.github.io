@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<a href="act7.html" class="boton-izquierdo">
+    <img src="../images/act7.jpg" class="dos">
+   </a>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Dysplay</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    <img src="../images/act8.jpg" alt="Imagen 1">
+    <img src="../fotos/led1.jpg" alt="Imagen 2">
+    <img src="../fotos/led2.jpg" alt="Imagen 3">
+    <img src="../fotos/led3.jpg" alt="Imagen 4">
+    <img src="../fotos/led4.jpg" alt="Imagen 4">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+En el dysplay led tu puedes imprimir informacion, tanto letras como numeros, si no cuentas con un adaptador para solo usar 4 pines, se requiere hacer mucho mas cableado </div>
+<br><br><center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+    import time<br>
+    <br>
+    # Define GPIO a LCD<br>
+    LCD_RS = 26<br>
+    LCD_E  = 19<br>
+    LCD_D4 = 13<br>
+    LCD_D5 = 6<br>
+    LCD_D6 = 5<br>
+    LCD_D7 = 11<br>
+    <br>
+    # Define algunas constantes del LCD<br>
+    LCD_WIDTH = 16  # Ancho máximo de la pantalla en caracteres<br>
+    LCD_CHR = True<br>
+    LCD_CMD = False<br>
+    LCD_LINE_1 = 0x80  # Dirección de la primera línea del LCD<br>
+    LCD_LINE_2 = 0xC0  # Dirección de la segunda línea del LCD<br>
+    LCD_E_PULSE = 0.0005  # Duración del pulso de habilitación<br>
+    LCD_E_DELAY = 0.0005  # Retardo entre pulsos de habilitación<br>
+    <br>
+    def lcd_init():<br>
+        # Configurar los pines del GPIO<br>
+        GPIO.setwarnings(False)<br>
+        GPIO.setmode(GPIO.BCM)<br>
+        GPIO.setup(LCD_E, GPIO.OUT)  # E<br>
+        GPIO.setup(LCD_RS, GPIO.OUT) # RS<br>
+        GPIO.setup(LCD_D4, GPIO.OUT) # D4<br>
+        GPIO.setup(LCD_D5, GPIO.OUT) # D5<br>
+        GPIO.setup(LCD_D6, GPIO.OUT) # D6<br>
+        GPIO.setup(LCD_D7, GPIO.OUT) # D7<br>
+    <br>
+        # Inicializar el LCD<br>
+        lcd_byte(0x33, LCD_CMD) # 110011 Inicialización del LCD<br>
+        lcd_byte(0x32, LCD_CMD) # 110010 Inicialización del LCD<br>
+        lcd_byte(0x06, LCD_CMD) # 000110 Configurar el modo de entrada<br>
+        lcd_byte(0x0C, LCD_CMD) # 001100 Encender el display<br>
+        lcd_byte(0x28, LCD_CMD) # 101000 Configurar el modo de 4 bits del LCD<br>
+        lcd_byte(0x01, LCD_CMD) # 000001 Limpiar el display<br>
+        time.sleep(LCD_E_DELAY)<br>
+    <br>
+    lcd_byte(0x01, LCD_CMD)<br>
+    <br>
+    def lcd_byte(bits, mode):<br>
+        # Enviar byte al LCD<br>
+        # Los bits se envían en dos grupos de 4 (nibble)<br>
+        GPIO.output(LCD_RS, mode) # RS<br>
+        # Nibble alto<br>
+        GPIO.output(LCD_D4, False)<br>
+        GPIO.output(LCD_D5, False)<br>
+        GPIO.output(LCD_D6, False)<br>
+        GPIO.output(LCD_D7, False)<br>
+        if bits & 0x10 == 0x10:<br>
+            GPIO.output(LCD_D4, True)<br>
+        if bits & 0x20 == 0x20:<br>
+            GPIO.output(LCD_D5, True)<br>
+        if bits & 0x40 == 0x40:<br>
+            GPIO.output(LCD_D6, True)<br>
+        if bits & 0x80 == 0x80:<br>
+            GPIO.output(LCD_D7, True)<br>
+        # Pulsar habilitación<br>
+        lcd_toggle_enable()<br>
+        # Nibble bajo<br>
+        GPIO.output(LCD_D4, False)<br>
+        GPIO.output(LCD_D5, False)<br>
+        GPIO.output(LCD_D6, False)<br>
+        GPIO.output(LCD_D7, False)<br>
+        if bits & 0x01 == 0x01:<br>
+            GPIO.output(LCD_D4, True)<br>
+        if bits & 0x02 == 0x02:<br>
+            GPIO.output(LCD_D5, True)<br>
+        if bits & 0x04 == 0x04:<br>
+            GPIO.output(LCD_D6, True)<br>
+        if bits & 0x08 == 0x08:<br>
+            GPIO.output(LCD_D7, True)<br>
+        # Pulsar habilitación<br>
+        lcd_toggle_enable()<br>
+    <br>
+    def lcd_toggle_enable():<br>
+        # Pulsar la línea de habilitación<br>
+        GPIO.output(LCD_E, True)<br>
+        time.sleep(LCD_E_PULSE)<br>
+        GPIO.output(LCD_E, False)<br>
+        time.sleep(LCD_E_PULSE)<br>
+    <br>
+    def lcd_string(message, line):<br>
+        # Enviar cadena al LCD<br>
+        message = message.ljust(LCD_WIDTH, " ")<br>
+        lcd_byte(line, LCD_CMD)<br>
+        for i in range(LCD_WIDTH):<br>
+            lcd_byte(ord(message[i]), LCD_CHR)<br>
+    <br>
+    # Inicializar el LCD<br>
+    lcd_init()<br>
+    <br>
+    # Mostrar "Hola mundo" en el LCD<br>
+    lcd_string("Hola mundo", LCD_LINE_1)<br>
+    <br>
+    # Limpiar el LCD después de 5 segundos<br>
+    time.sleep(5)<br>
+    lcd_byte(0x01, LCD_CMD)<br>
+    <br>
+    # Limpiar los pines del GPIO<br>
+    GPIO.cleanup()<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/led.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

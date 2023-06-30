@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="act3.html" class="boton-izquierdo">
+    <img src="../images/act3.jpg" class="dos">
+   </a>
+
+  <a href="act5.html" class="boton-derecho">
+    <img src="../images/act6.jpg" class="dos">
+   </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Servomotor</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    <img src="../images/act4.jpg" alt="Imagen 1">
+    <img src="../fotos/ser.png" alt="Imagen 2">
+    <img src="../fotos/ser2.png" alt="Imagen 3">
+    
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Aquí es parecido, el código funciona de tal manera que el servo se mueva a la posición específica, determinada por grados, 0 como su posición inicial y teniendo limite hasta 360<br><br></div>
+<center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+import time<br>
+<br>
+# Pin GPIO utilizado para el control del servo<br>
+pin_servo = 17<br>
+GPIO.setwarnings(False)<br>
+<br>
+def setup():<br>
+    GPIO.setmode(GPIO.BCM)<br>
+    GPIO.setup(pin_servo, GPIO.OUT)<br>
+<br>
+def set_angle(angle):<br>
+    pwm.ChangeDutyCycle(2 + (angle/18))<br>
+    time.sleep(0.5)<br>
+    pwm.ChangeDutyCycle(0)<br>
+<br>
+try:<br>
+    setup()<br>
+    pwm = GPIO.PWM(pin_servo, 50)<br>
+    pwm.start(0)<br>
+<br>
+    while True:<br>
+        angle = float(input("Introduce el ángulo (0 a 360): "))<br>
+        set_angle(angle)<br>
+<br>
+except KeyboardInterrupt:<br>
+    pwm.stop()<br>
+    GPIO.cleanup()<br>
+<br>
+if rotate_dir != 1 and rotate_dir != -1:<br>
+    rotate_dir = 1<br>
+<br>
+if rot_spd > 1 or rot_spd < 0.001:<br>
+    rot_spd = 0.001<br>
+<br>
+print(rotate, rotate_dir, rot_spd)<br>
+<br>
+for i in range(0, (rotate + 1)):<br>
+    for pin in range(0, 4):<br>
+        Pattern_Pin = ControlPin[pin]<br>
+        if seq[step_seq_num % len(seq)][pin] == 1:<br>
+            GPIO.output(Pattern_Pin, True)<br>
+        else:<br>
+            GPIO.output(Pattern_Pin, False)<br>
+<br>
+    step_seq_num += rotate_dir<br>
+<br>
+    time.sleep(rot_spd)<br>
+<br>
+GPIO.cleanup()
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/ser3.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

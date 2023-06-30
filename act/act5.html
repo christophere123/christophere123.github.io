@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="act4.html" class="boton-izquierdo">
+    <img src="../images/act4.jpg" class="dos">
+   </a>
+
+  <a href="act6.html" class="boton-derecho">
+    <img src="../images/act5.jpg" class="dos">
+   </a>
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Pantalla Oled</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    <img src="../images/act6.jpg" alt="Imagen 1">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+en la oled tu podras mostrar la informacion requerida, incluso datos relevantes de las raspberry pi 3<br><br></div>
+<center>
+    <div class="contenedor2">
+        pip install adafruit-circuitpython-ssd1306
+
+    </div><br><br>
+<div class="contenedor2">import board<br>
+    import busio<br>
+    import adafruit_ssd1306<br>
+    from PIL import Image, ImageDraw, ImageFont<br><br>
+    # Configuración del OLED<br>
+    WIDTH = 128<br>
+    HEIGHT = 32<br>
+    I2C_ADDR = 0x3C<br><br>
+    # Inicializar el objeto I2C<br>
+    i2c = busio.I2C(board.SCL, board.SDA)<br><br>
+    # Inicializar el objeto OLED<br>
+    oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=I2C_ADDR)<br><br>
+    # Limpiar la pantalla<br>
+    oled.fill(0)<br>
+    oled.show()<br><br>
+    # Crear una imagen en blanco<br>
+    image = Image.new("1", (WIDTH, HEIGHT))<br>
+    draw = ImageDraw.Draw(image)<br><br>
+    # Cargar una fuente<br>
+    font = ImageFont.load_default()<br><br>
+    # Escribir "Hola Mundo" en la imagen<br>
+    draw.text((0, 0), "Hola Mundo", font=font, fill=255)<br><br>
+    # Mostrar la imagen en el OLED<br>
+    oled.image(image)<br>
+    oled.show()
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/pantallaoled.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

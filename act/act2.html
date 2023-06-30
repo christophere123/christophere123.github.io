@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="act1.html" class="boton-izquierdo">
+    <img src="../images/act1.jpg" class="dos">
+   </a>
+
+  <a href="act3.html" class="boton-derecho">
+    <img src="../images/act3.jpg" class="dos">
+   </a>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Buzzer</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/act2.jpg" alt="Imagen 1">
+    <img src="../fotos/buzzer.png" alt="Imagen 1">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+El buzzer es capaz de reproducir melodias sencillas mediante vibraciones, las mas comunes son las melodias navideñas<br><br></div>
+<center>
+<div class="contenedor2">
+
+    import RPi.GPIO as GPIO<br>
+import time<br>
+<br>
+GPIO.setmode(GPIO.BCM)<br>
+GPIO.setup(17, GPIO.OUT)<br>
+<br>
+melodia = [<br>
+    261, 293, 329, 349, 392, 440, 493, 523<br>
+]<br>
+<br>
+duraciones = [<br>
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5<br>
+]<br>
+<br>
+def reproducir_melodia(pin, melodia, duraciones):<br>
+    for nota, duracion in zip(melodia, duraciones):<br>
+        generar_tono(pin, nota, duracion)<br>
+        time.sleep(0.1)  # Pausa entre notas<br>
+<br>
+def generar_tono(pin, frecuencia, duracion):<br>
+    pwm = GPIO.PWM(pin, frecuencia)<br>
+    pwm.start(50)  # Inicia la señal PWM con un ciclo de trabajo del 50% (50% de volumen)<br>
+    time.sleep(duracion)<br>
+    pwm.stop()<br>
+<br>
+try:<br>
+    reproducir_melodia(17, melodia, duraciones)<br>
+<br>
+except KeyboardInterrupt:<br>
+    GPIO.cleanup()<br>
+
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/buzzer2.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

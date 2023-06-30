@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Raspberry Pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+  <a href="act2.html" class="boton-derecho">
+   <img src="../images/act2.jpg" class="dos">
+  </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">SMD RGB</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/act1.jpg" alt="Imagen 1">
+    <img src="../fotos/egb.png" alt="Imagen 1">
+    <img src="../fotos/rgb.png" alt="Imagen 2">
+    
+    <img src="../fotos/rgb2.png" alt="Imagen 2">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Es un led que puede alterar su propio color, incluso siendo programable<br><br></div>
+<center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+    import time<br>
+    <br>
+    GPIO.setmode(GPIO.BCM)<br>
+    <br>
+    # Define los pines GPIO para los colores R, G y B del KY-009<br>
+    red_pin = 17<br>
+    green_pin = 27<br>
+    blue_pin = 22<br>
+    # Configura los pines como salidas<br>
+    GPIO.setup(red_pin, GPIO.OUT)<br>
+    GPIO.setup(green_pin, GPIO.OUT)<br>
+    GPIO.setup(blue_pin, GPIO.OUT)<br>
+    <br>
+    # Enciende el LED en rojo<br>
+    GPIO.output(red_pin, GPIO.HIGH)<br>
+    GPIO.output(green_pin, GPIO.LOW)<br>
+    GPIO.output(blue_pin, GPIO.LOW)<br>
+    time.sleep(1)<br>
+    <br>
+    # Enciende el LED en verde<br>
+    GPIO.output(red_pin, GPIO.LOW)<br>
+    GPIO.output(green_pin, GPIO.HIGH)<br>
+    GPIO.output(blue_pin, GPIO.LOW)<br>
+    time.sleep(1)<br>
+    <br>
+    # Enciende el LED en azul<br>
+    GPIO.output(red_pin, GPIO.LOW)<br>
+    GPIO.output(green_pin, GPIO.LOW)<br>
+    GPIO.output(blue_pin, GPIO.HIGH)<br>
+    time.sleep(1)<br>
+    <br>
+    # Apaga el LED<br>
+    GPIO.output(red_pin, GPIO.LOW)<br>
+    GPIO.output(green_pin, GPIO.LOW)<br>
+    GPIO.output(blue_pin, GPIO.LOW)<br>
+    <br>
+    # Limpia la configuración de los pines GPIO<br>
+    GPIO.cleanup()<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/rgb3.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

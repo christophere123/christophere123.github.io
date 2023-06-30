@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="act2.html" class="boton-izquierdo">
+    <img src="../images/act2.jpg" class="dos">
+   </a>
+
+  <a href="act4.html" class="boton-derecho">
+    <img src="../images/act4.jpg" class="dos">
+   </a>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Step Motor</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/act3.jpg" alt="Imagen 1">
+    <img src="../fotos/step.png" alt="Imagen 1">
+    <img src="../fotos/step2.png" alt="Imagen 2">
+    <img src="../fotos/step3.png" alt="Imagen 3">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+El código funciona de tal manera que te pregunta que tantos valores quieres para el movimiento, que si el giro, la velocidad y la dirección, el motor funciona bien en el raspberry pi3, pero si es posible es mejor opción usar una fuente de energía externa<br><br></div>
+<center>
+<div class="contenedor2">import RPi.GPIO as GPIO<br>
+    import time<br>
+    <br>
+    GPIO.setwarnings(False)<br>
+    GPIO.setmode(GPIO.BOARD)<br>
+    ControlPin = [7, 11, 13, 15]<br>
+    <br>
+    for pin in ControlPin:<br>
+        GPIO.setup(pin, GPIO.OUT)<br>
+        GPIO.output(pin, False)<br>
+    <br>
+    step_seq_num = 0<br>
+    rot_spd = 0.002<br>
+    rotate = 4096<br>
+    rotate_dir = 1<br>
+    <br>
+    seq = [<br>
+        [1, 0, 0, 0],<br>
+        [1, 1, 0, 0],<br>
+        [0, 1, 0, 0],<br>
+        [0, 1, 1, 0],<br>
+        [0, 0, 1, 0],<br>
+        [0, 0, 1, 1],<br>
+        [1, 0, 0, 1],<br>
+    ]<br>
+    <br>
+    rotateF = float(input("Enter revolutions (0.000041+): "))<br>
+    rotate_dir = int(input("Enter direction (1CW/-1CCW): "))<br>
+    rot_spd = float(input("Enter speed (1-0.001): "))<br>
+    <br>
+    rotate = int(rotateF * 4096)<br>
+    if rotate < 1:<br>
+        rotate = 4096<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+
+
+<div class="image-container">
+    <img src="../fotos/step4.png"  class="tres">
+  </div><br><br>
+<div class="image-container">
+    <img src="../fotos/step5.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>
