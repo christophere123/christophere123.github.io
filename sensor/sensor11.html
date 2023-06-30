@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Raspberry Pi</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    <img src="../images/act1.jpg" alt="Imagen 1">
+    <img src="../images/act1.jpg" alt="Imagen 2">
+    <img src="../images/act1.jpg" alt="Imagen 3">
+    <img src="../images/act1.jpg" alt="Imagen 4">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+El capitán Lastimosa viene a ayudar a Cooper y lo lleva a salvo, pero se ve abrumado por los Apex Predators, un equipo de mercenarios cualificados , dirigidos por Kuben Blisk, que trabaja para la IMC. Lastimosa es herido mortalmente y su Titán, BT-7274, queda incapacitado. Severamente herido, Lastimosa transfiere la autorización de BT a Cooper y le da su casco, armadura y kit de salto antes de sucumbir a sus lesiones. Después de que Cooper restaure el poder al Titán dañado, BT le explica la misión de Lastimosa: Operación especial 217; reunirse con el Mayor Anderson, el comandante de la misión, y ayudarlo en la finalización de su asignación original.
+Después de deshacerse de los mercenarios -de Blisk y llegar a la última posición conocida de Anderson, Cooper y BT encuentran el cuerpo de Anderson en una instalación de investigaciones abandonada de la IMC, la mitad inferior de su cuerpo por encima del suelo de la segunda planta y la mitad superior de su cuerpo por debajo del techo de la primera planta.<img class="uno"src="img/vip.jpg" alt="image" height="30%" width="40%" align="right"> Después de ver el informe de la misión de Anderson entregado por Sarah Briggs, Cooper y BT descubren que a Anderson se le dio un dispositivo montado en la muñeca para ayudarlo a navegar por las instalaciones, lo que le permitió viajar de un lado a otro simplemente apretando el puño.<br>
+Cooper encuentra la otra mitad del cadáver de Anderson y equipa el dispositivo. Se descubre el horrible experimento que la IMC estaba llevando a cabo en el laboratorio: se había desarrollado una súper arma conocida como "Arma de Doblez", que utiliza tecnología de desplazamiento en el tiempo. Esta arma se pretende utilizar para destruir todos los planetas ocupados por las milicias, entre ellos Harmony, hogar de varios millones de civiles y cuartel general de la Milicia, que es el primer objetivo. Cooper también descubre que la tecnología de desplazamiento depende de una fuente de energía conocida como el Arca, y que es una versión reducida del prototipo del arma que destruyó el laboratorio inicialmente. Cooper y BT deciden transmitir una señal a la flota de la Milicia para iniciar un contraataque antes 
+</div>
+<center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+import time<br>
+<br>
+GPIO.setmode(GPIO.BCM)<br>
+<br>
+# Define los pines GPIO para los colores R, G y B del KY-009<br>
+red_pin = 17<br>
+green_pin = 27<br>
+blue_pin = 22<br>
+# Configura los pines como salidas<br>
+GPIO.setup(red_pin, GPIO.OUT)<br>
+GPIO.setup(green_pin, GPIO.OUT)<br>
+GPIO.setup(blue_pin, GPIO.OUT)<br>
+<br>
+# Enciende el LED en rojo<br>
+GPIO.output(red_pin, GPIO.HIGH)<br>
+GPIO.output(green_pin, GPIO.LOW)<br>
+GPIO.output(blue_pin, GPIO.LOW)<br>
+time.sleep(1)<br>
+<br>
+# Enciende el LED en verde<br>
+GPIO.output(red_pin, GPIO.LOW)<br>
+GPIO.output(green_pin, GPIO.HIGH)<br>
+GPIO.output(blue_pin, GPIO.LOW)<br>
+time.sleep(1)<br>
+<br>
+# Enciende el LED en azul<br>
+GPIO.output(red_pin, GPIO.LOW)<br>
+GPIO.output(green_pin, GPIO.LOW)<br>
+GPIO.output(blue_pin, GPIO.HIGH)<br>
+time.sleep(1)<br>
+<br>
+# Apaga el LED<br>
+GPIO.output(red_pin, GPIO.LOW)<br>
+GPIO.output(green_pin, GPIO.LOW)<br>
+GPIO.output(blue_pin, GPIO.LOW)<br>
+<br>
+# Limpia la configuración de los pines GPIO<br>
+GPIO.cleanup()<br>
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../images/act3.jpg"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+
+<a href="sensor3.html" class="boton-izquierdo">
+    <img src="../images/sensor3.jpg" class="dos">
+   </a>
+
+  <a href="sensor5.html" class="boton-derecho">
+    <img src="../images/sensor5.jpg" class="dos">
+   </a>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Sensor de sonido</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor4.jpg" alt="Imagen 1">
+    <img src="../fotos/foto41.jpg.png" alt="Imagen 1">
+    <img src="../fotos/foto42.jpg.png" alt="Imagen 2">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+El sensor de sonido de acuerdo a como lo hayamos calibrado, detectara todo sonido, y mientras este exista se mantendrá activado, una vez el sonido cesa el sensor desactivara lo demás, puede servir para prender un led, activar la música o en este caso solo detectar la existencia del sonido <br><br></div>
+<center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+    import time<br>
+    <br>
+    channel = 17<br>
+    GPIO.setmode(GPIO.BCM)<br>
+    GPIO.setup(channel, GPIO.IN)<br>
+    <br>
+    def callback(channel):<br>
+        if GPIO.input(channel):<br>
+            print("sonido detectado")<br>
+        else:<br>
+            print("sonido detectado")<br>
+    <br>
+    GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)<br>
+    GPIO.add_event_callback(channel, callback)<br>
+    <br>
+    while True:<br>
+        time.sleep<br>
+    
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/foto43.jpg.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

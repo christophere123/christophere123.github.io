@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+
+<a href="sensor2.html" class="boton-izquierdo">
+    <img src="../images/sensor2.jpg" class="dos">
+   </a>
+
+  <a href="sensor4.html" class="boton-derecho">
+    <img src="../images/sensor4.jpg" class="dos">
+   </a>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Sensor Proximidad</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor3.jpg" alt="Imagen 1">
+    <img src="../fotos/foto31.jpg.png" alt="Imagen 1">
+    <img src="../fotos/foto32.jpg.png" alt="Imagen 2">
+    <img src="../fotos/foto33.jpg.png" alt="Imagen 3">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Aquí cambia toda la cosa, el sensor de proximidad funciona a base de emitir sonido y calcular que tanto tarda en rebotar para regresar a este, para así obtener una medida, en el siguiente código se usa para obtener los cm entre algún objeto y el sensor, por otra parte igual podría ser usado para activarse si detecta movimiento en ciertas medidas<br></div>
+<br><center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+    import time<br>
+    GPIO.setmode(GPIO.BCM)<br>
+    <br>
+    TRIG = 27<br>
+    ECHO = 12<br>
+    print("Medicion en progreso")<br>
+    <br>
+    GPIO.setup(TRIG, GPIO.OUT)<br>
+    GPIO.setup(ECHO, GPIO.IN)<br>
+    <br>
+    GPIO.output(TRIG, False)<br>
+    time.sleep(2)<br>
+    <br>
+    GPIO.output(TRIG, True)<br>
+    time.sleep(0.00001)<br>
+    GPIO.output(TRIG, False)<br>
+    <br>
+    while GPIO.input(ECHO) == 0:<br>
+        pulse_start = time.time()<br>
+    while GPIO.input(ECHO) == 1:<br>
+        pulse_end = time.time()<br>
+    pulse_duration = pulse_end - pulse_start<br>
+    distance = pulse_duration * 17150<br>
+    distance = round(distance, 2)<br>
+    <br>
+    print("La distancia es", distance, "cm")<br>
+    
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/foto34.jpg.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

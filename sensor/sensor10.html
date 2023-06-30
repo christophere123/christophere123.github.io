@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+
+<a href="sensor9.html" class="boton-izquierdo">
+    <img src="../images/sensor9.jpg" class="dos">
+   </a>
+
+  <a href="sensor12.html" class="boton-derecho">
+    <img src="../images/sensor12.jpg" class="dos">
+   </a>
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Hearbeat sensor</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor10.jpg" alt="Imagen 1">
+    <img src="../fotos/heart.png" alt="Imagen 1">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+La principal funcion de este sensor es identificar la frecuencia cardiaca, para ello este puede contar las pulsasiones detectadas en un determinado tiempo <br><br></div>
+<center>
+<div class="contenedor2">import RPi.GPIO as GPIO<br>
+    import time<br>
+    <br>
+    GPIO.setmode(GPIO.BCM)<br>
+    GPIO.setup(17, GPIO.IN)<br>
+    <br>
+    tiempo_inicio = time.time()<br>
+    pulsos = 0<br>
+    <br>
+    try:<br>
+        while True:<br>
+            valor = GPIO.input(17)<br>
+            <br>
+            if valor == GPIO.LOW:<br>
+                pulsos += 1<br>
+            <br>
+            tiempo_actual = time.time()<br>
+            tiempo_transcurrido = tiempo_actual - tiempo_inicio<br>
+            <br>
+            if tiempo_transcurrido > 5:<br>
+                frecuencia = pulsos / tiempo_transcurrido<br>
+                frecuencia_cardiaca = frecuencia * 60<br>
+                print("Frecuencia cardíaca: {:.2f} BPM".format(frecuencia_cardiaca))<br>
+                <br>
+                tiempo_inicio = time.time()<br>
+                pulsos = 0<br>
+            <br>
+            time.sleep(0.1)<br>
+    <br>
+    except KeyboardInterrupt:<br>
+        GPIO.cleanup()<br>
+    
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/heart2.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

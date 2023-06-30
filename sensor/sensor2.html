@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+
+<a href="sensor1.html" class="boton-izquierdo">
+    <img src="../images/sensor1.jpg" class="dos">
+   </a>
+
+  <a href="sensor3.html" class="boton-derecho">
+    <img src="../images/sensor3.jpg" class="dos">
+   </a>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Sensor infrarojo</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor2.jpg" alt="Imagen 1">
+    <img src="../fotos/foto21.jpg.png" alt="Imagen 1">
+    <img src="../fotos/foto22.jpg.png" alt="Imagen 2">
+    <img src="../fotos/foto23.jpg.png" alt="Imagen 3">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Este circuito es prácticamente idéntico al anterior con la diferencia de que este sensor está activo mientras exista alguna obstrucción, el led se apagara en el momento que el sensor este totalmente libre</div>
+<center><br>
+<div class="contenedor2">
+    from gpiozero import LED<br>
+    from gpiozero import MotionSensor<br>
+    <br>
+    green_led = LED(17)<br>
+    pir = MotionSensor(4)<br>
+    green_led.off()<br>
+    <br>
+    while True:<br>
+        pir.wait_for_motion()<br>
+        print("sin obstrucciones")<br>
+        green_led.off()<br>
+        pir.wait_for_no_motion()<br>
+        green_led.on()<br>
+        print("objeto detectado")<br>
+    
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/foto24.jpg.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

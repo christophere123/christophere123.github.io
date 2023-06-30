@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Raspberry Pi</title>
+
+</head>
+
+
+  <a href="sensor2.html" class="boton-derecho">
+    <img src="../images/sensor2.jpg" class="dos">
+   </a>
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Sensor de proximidad</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor1.jpg" alt="Imagen 1">
+    <img src="../fotos/foto1.jpg.png" alt="Imagen 1">
+    <img src="../fotos/foto12.jpg.png" alt="Imagen 2">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Este circuito consiste en el constante monitoreo por parte del sensor, en el momento que se detecte algún movimiento, lo registrara y activara el led, cuando no se registre movimiento comenzara la espera para por fin volver al estado de reposo</div>
+<center><br>
+<div class="contenedor2">
+    from gpiozero import LED<br>
+    from gpiozero import MotionSensor<br>
+    <br>
+    led = LED(17)<br>
+    pir = MotionSensor(4)<br>
+    led.off()<br>
+    <br>
+    while True:<br>
+        pir.wait_for_no_motion()<br>
+        print("no hay movimiento")<br>
+        led.off()<br>
+        pir.wait_for_motion()<br>
+    <br>
+        led.on()<br>
+        print("movimiento detectado")<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/foto13.jpg.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

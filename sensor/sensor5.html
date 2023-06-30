@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="sensor4.html" class="boton-izquierdo">
+    <img src="../images/sensor4.jpg" class="dos">
+   </a>
+
+  <a href="sensor6.html" class="boton-derecho">
+    <img src="../images/sensor6.jpg" class="dos">
+   </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Sensor temperatura</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor5.jpg" alt="Imagen 1">
+    <img src="../fotos/temp2.jpg.png" alt="Imagen 2">
+    <img src="../fotos/temp3.jpg.png" alt="Imagen 3">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Primero tenemos que instalar la extensión Adafruit DHT, esto con el primer código en la barra de comandos, ya con eso podremos detectar tanto la temperatura como la humedad actual</div>
+<center>
+    <br><br>
+<div class="contenedor2">
+    sudo pip3 install Adafruit_DHT
+</div><br><br>
+<div class="contenedor2">import Adafruit_DHT<br>
+    import time<br>
+    <br>
+    DHT_SENSOR = Adafruit_DHT.DHT11<br>
+    DHT_PIN = 4<br>
+    <br>
+    while True:<br>
+        humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, DHT_PIN)<br>
+        if humidity is not None and temperature is not None:<br>
+            print("Temp={0:0.1f}C Humidity={1:0.1f}%".format(temperature, humidity))<br>
+        else:<br>
+            print("Sensor failure. Check wiring.")<br>
+        time.sleep(3)<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/temp.jpg.png"  class="tres">
+  </div>
+<br><br>
+  <div class="image-container">
+    <img src="../fotos/temp5.jpg.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

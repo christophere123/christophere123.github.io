@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+
+<a href="sensor10.html" class="boton-izquierdo">
+    <img src="../images/sensor12.jpg" class="dos">
+   </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Avoid sensor</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor12.jpg" alt="Imagen 1">
+    <img src="../fotos/avoid2.png" alt="Imagen 1">
+    <img src="../fotos/avoid.png" alt="Imagen 2">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+El avoid sensor funciona parecido al sensor infrarojo, este se encarga de detectar los obstaculos en su camino <br><br></div>
+<center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+    <br>
+    avoidance_pin = 17<br>
+    <br>
+    GPIO.setmode(GPIO.BCM)<br>
+    GPIO.setup(avoidance_pin, GPIO.IN)<br>
+    <br>
+    try:<br>
+        while True:<br>
+            if GPIO.input(avoidance_pin):<br>
+                print("Objeto detectado")<br>
+            else:<br>
+                print("Sin objeto")<br>
+    except KeyboardInterrupt:<br>
+        GPIO.cleanup()<br>
+    
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/avoid3.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

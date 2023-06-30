@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="sensor7.html" class="boton-izquierdo">
+    <img src="../images/sensor7.jpg" class="dos">
+   </a>
+
+  <a href="sensor9.html" class="boton-derecho">
+    <img src="../images/sensor9.jpg" class="dos">
+   </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Hall magnetic sensor</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor8.jpg" alt="Imagen 1">
+    <img src="../fotos/hall.png" alt="Imagen 1">
+    <img src="../fotos/hall2.png" alt="Imagen 2">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+El código es prácticamente el mismo con la diferencia de los comentarios invertidos, pues el sensor trabaja de manera totalmente opuesta, esta operativo hasta que un iman lo apaga<br><br></div>
+<center>
+<div class="contenedor2">
+    import os<br>
+    import time<br>
+    time.sleep(0.100)<br>
+    import random<br>
+    <br>
+    import RPi.GPIO as GPIO<br>
+    <br>
+    GPIO.setmode(GPIO.BCM)<br>
+    <br>
+    GPIO.setup(9, GPIO.IN, pull_up_down=GPIO.PUD_UP)<br>
+    <br>
+    while True:<br>
+        if GPIO.input(9) == True:<br>
+            print("sin contacto")<br>
+            time.sleep(0.5)<br>
+        <br>
+        if GPIO.input(9) == False:<br>
+            print("iman detectado")<br>
+            time.sleep(0.5)<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/hall3.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>

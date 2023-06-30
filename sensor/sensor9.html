@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Proyecto raspberry pi</title>
+
+</head>
+
+<div class="head">
+
+    <div class="logo">
+        <a href="../index.html"><img src="../images/raspilogo2.jpg" class="dos"></a>
+    </div>
+
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        
+    </nav>
+
+</div>
+
+
+<a href="sensor8.html" class="boton-izquierdo">
+    <img src="../images/sensor8.jpg" class="dos">
+   </a>
+
+  <a href="sensor10.html" class="boton-derecho">
+    <img src="../images/sensor10.jpg" class="dos">
+   </a>
+
+<header class="content header2">
+    <br><br><br> <br><br><br>
+
+    <h1 class="title">Rotary Encoder</h1>
+
+
+    <br>
+</header>
+<br><br>
+<div class="contenedor">
+
+
+
+    <center>
+  <div class="image-row">
+    
+    <img src="../images/sensor9.jpg" alt="Imagen 1">
+    <img src="../fotos/rot.png" alt="Imagen 1">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div></center>
+<br><br>
+Este sensor se encarga de enviar señales de acuerdo al giro de este mismo, puede funcionar trabajando con 2 casos, falso y verdadero que seria como este ejemplo, aunque tambien podria trabajar con numeros
+<br><br></div>
+<center>
+<div class="contenedor2">
+    import RPi.GPIO as GPIO<br>
+    import time<br>
+    <br>
+    SW_PIN = 20<br>
+    DT_PIN = 16<br>
+    CLK_PIN = 17<br>
+    <br>
+    GPIO.setmode(GPIO.BCM)<br>
+    GPIO.setup(SW_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)<br>
+    GPIO.setup(DT_PIN, GPIO.IN)<br>
+    GPIO.setup(CLK_PIN, GPIO.IN)<br>
+    <br>
+    valor_anterior = True<br>
+    switch_presionado = False<br>
+    <br>
+    while True:<br>
+        if valor_anterior != GPIO.input(CLK_PIN):<br>
+            if GPIO.input(CLK_PIN) == False:<br>
+                if GPIO.input(DT_PIN) == False:<br>
+                    print("izquierda")<br>
+                    time.sleep(0.2)<br>
+                else:<br>
+                    print("derecha")<br>
+                    time.sleep(0.2)<br>
+            valor_anterior = GPIO.input(CLK_PIN)<br>
+        <br>
+        if GPIO.input(SW_PIN) == False and not switch_presionado:<br>
+            print("SW presionado")<br>
+            switch_presionado = True<br>
+        if GPIO.input(SW_PIN) == True and switch_presionado:<br>
+            switch_presionado = False<br>
+    
+
+</div></center>
+<br><br>
+<br><br>
+
+<div class="image-container">
+    <img src="../fotos/rot2.png"  class="tres">
+  </div><br><br>
+<div class="image-container">
+    <img src="../fotos/rot3.png"  class="tres">
+  </div>
+
+  <br><br><br><br><br><br>
+
+<section class="content about">
+    <br>
+    <p>Realizado por Christopher Eduardo Barrientos Guerra
+    </p>
+
+</section>
